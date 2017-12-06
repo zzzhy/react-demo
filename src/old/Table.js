@@ -15,8 +15,11 @@ class DymTable extends Component {
       this.state = {'result': []};
     }
 
-    render() {
+    componentDidMount() {
       getData().then((res) => this.setState({'result':res}));
+    }
+
+    render() {
       return (<Table responsive striped bordered condensed hover>
       <thead>
         <tr>
@@ -27,7 +30,7 @@ class DymTable extends Component {
         </tr>
       </thead>
       <tbody>
-        {this.state.result.map((d) => 
+        {this.state.result.map((d) =>
           <tr>
             <td>0</td>
             <td>{d['h1']}</td>
